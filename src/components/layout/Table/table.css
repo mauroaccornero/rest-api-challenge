@@ -1,0 +1,37 @@
+#table{
+    width: 100%;
+}
+
+#table tr th, #table tr td{
+    text-align: center;
+}
+
+#table tr th:first-child,#table tr td:first-child{
+    text-align: left;
+}
+
+#table tr th:last-child,#table tr td:last-child{
+    text-align: right;
+}
+
+#table tr th{
+    background-color: var(--light-blue);
+    padding: var(--default-half-space);
+}
+
+#table tr td{
+    background-color: white;
+    padding: var(--default-half-space);
+    border-bottom:1px solid var(--light-blue)
+}
+
+#table tr td a{
+    text-decoration: underline;
+    transition: color .3s;
+}
+
+#table tr td a:hover{
+    color: var(--blue);
+}
+
+

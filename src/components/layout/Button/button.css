@@ -1,0 +1,21 @@
+.button{
+    background-color: var(--blue);
+    color: white;
+    border-radius: var(--default-border-radius);
+    border:0;
+    padding: var(--default-half-space) var(--default-space);
+    cursor:pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color, background-color .3s;
+}
+
+.button:hover{
+    background-color: var(--light-blue);
+    color: white;
+}
+
+.button:active{
+    background-color: var(--blue);
+    color: var(--light-blue);
+}

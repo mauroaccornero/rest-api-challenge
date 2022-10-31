@@ -1,0 +1,18 @@
+{
+  "clearMocks": true,
+  "testEnvironment": "jsdom",
+  "preset": "ts-jest",
+  "setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
+  "collectCoverage": true,
+  "coverageDirectory": "coverage",
+  "moduleNameMapper": {
+    "^.+\\.(css)$": "identity-obj-proxy"
+  },
+  "coverageThreshold": {
+    "global": {
+      "lines": 70
+    }
+  },
+  "transform": {},
+  "extensionsToTreatAsEsm": [".ts",".tsx"]
+}

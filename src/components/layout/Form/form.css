@@ -1,0 +1,28 @@
+#form{
+    display:flex;
+    flex-direction: column;
+}
+
+#form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+input,select{
+    padding: var(--default-half-space);
+    background-color: white;
+    border-radius: var(--default-border-radius);
+    color:var(--dark-blue);
+    margin-bottom: var(--default-half-space);
+    border:1px solid var(--light-blue)
+}
+
+label{
+    margin-bottom: var(--default-space);
+}
+
+@media(min-width:1024px){
+    button{
+        margin-left: auto;
+    }
+}

@@ -1,0 +1,34 @@
+#menu{
+    background-color: var(--blue);
+}
+
+#menu ul{
+    display:flex;
+    justify-content: center;
+}
+
+#menu ul li{
+    margin-right: var(--default-half-space);
+}
+
+#menu ul li a{
+    padding: var(--default-half-space) var(--default-space);
+    display: block;
+    color: white;
+    transition: color, background-color .3s;
+}
+
+#menu ul li a:hover{
+    color: var(--dark-blue);
+}
+
+#menu ul li a:active{
+    color: var(--dark-blue);
+    background-color: var(--light-blue);
+}
+
+#menu ul li a.active{
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+    font-weight: 700;
+}

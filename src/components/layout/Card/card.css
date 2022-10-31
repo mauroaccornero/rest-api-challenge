@@ -1,0 +1,9 @@
+.card{
+    background-color: #fff;
+    border-radius: var(--default-border-radius);
+    padding: var(--default-space);
+}
+
+.card li{
+    margin-bottom: var(--default-half-space);
+}

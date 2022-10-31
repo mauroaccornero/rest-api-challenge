@@ -1,0 +1,15 @@
+:root {
+    --default-space: 20px;
+    --default-half-space: calc(20px / 2);
+    --default-font-size: 14px;
+    --default-border-radius:3px;
+
+    --dark-blue: #153462;
+    --blue: #4FA095;
+    --light-yellow: #F6F6C9;
+    --light-blue: #BAD1C2;
+    --color-info: #a0e9f3;
+    --color-success: #b4ecab;
+    --color-warning: #e5ac3e;
+    --color-error: #e54f4f;
+}
