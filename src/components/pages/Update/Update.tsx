@@ -19,7 +19,7 @@ const Update = () => {
   } = useAxios<IAuthor[]>(`/authors`);
 
   const submitCallback = (item: IBookPayload) => axios({
-      url:`http://localhost:4000/books/${item.id}`,
+      url:`${process.env.REACT_APP_API_URL}/books/${item.id}`,
       method: "put",
       data: item
     });

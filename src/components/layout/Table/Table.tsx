@@ -26,7 +26,7 @@ const Table = memo(({ books }: ITableProps) => {
 
     const deleteItem = () => {
         axios({
-            url:`http://localhost:4000/books/${itemToDelete}`,
+            url:`${process.env.REACT_APP_API_URL}/books/${itemToDelete}`,
             method: "delete"
         }).then(response => {
             setProcessStatus("success")

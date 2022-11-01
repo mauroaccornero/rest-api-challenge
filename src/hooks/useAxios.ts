@@ -10,7 +10,7 @@ const useAxios = <T>(path: string, method: Method = "get") => {
 
   useEffect(() => {
     const axiosConfig = {
-      url: `http://localhost:4000${path}`,
+      url: `${process.env.REACT_APP_API_URL}${path}`,
       method,
       timeout: 5000,
     };

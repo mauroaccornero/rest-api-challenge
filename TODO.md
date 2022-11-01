@@ -1,6 +1,5 @@
 # TODO
 
-- add env files/vars
 - remove create-react-app and use webpack
 - add jsdoc
 - add git hook for commit

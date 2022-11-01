@@ -12,6 +12,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
+    "dev": "npm run mock-db & npm start",
     "eject": "react-scripts eject",
     "audit:prod": "npm audit --production",
     "mock-db": "json-server --watch ./mocks/db.js --port 4000",
