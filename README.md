@@ -12,7 +12,7 @@ this will use perform a [clean install](https://docs.npmjs.com/cli/v8/commands/n
 
 Run the project with
 
-### `npm start`
+### `npm run dev`
 
 or check the e2e tests with
 
