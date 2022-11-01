@@ -6,6 +6,7 @@ import Update from "../components/pages/Update/Update";
 import Create from "../components/pages/Create/Create";
 import Detail from "../components/pages/Detail/Detail";
 import PATHS from "../constants/paths";
+import ListUser from "../components/pages/ListUser/ListUser";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,8 @@ export const router = createBrowserRouter([
   {
     path: `${PATHS.LIST}`,
     element: <List />,
+    errorElement: <NotFound />,
+
   },
   {
     path: `${PATHS.DETAIL}/:id`,
@@ -25,6 +28,12 @@ export const router = createBrowserRouter([
   {
     path: PATHS.CREATE,
     element: <Create />,
+    errorElement: <NotFound />,
+  },
+  {
+    path: PATHS.USERS,
+    element: <ListUser />,
+    errorElement: <NotFound />,
   },
   {
     path: `${PATHS.UPDATE}/:id`,
