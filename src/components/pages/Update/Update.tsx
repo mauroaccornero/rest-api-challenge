@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Form from "../../layout/Form/Form";
 import useAxios from "../../../hooks/useAxios";
 import { IBook } from "../../../interfaces/IBook";
-import { IAuthor } from "../../../interfaces/Author";
+import { IAuthor } from "../../../interfaces/IAuthor";
 import Loading from "../../layout/Loading/Loading";
 import Message from "../../layout/Message/Message";
 import {IBookPayload} from "../../../interfaces/IBookPayload";
@@ -19,7 +19,7 @@ const Update = () => {
   } = useAxios<IAuthor[]>(`/authors`);
 
   const submitCallback = (item: IBookPayload) => axios({
-      url:`${process.env.REACT_APP_API_URL}/books/${item.id}`,
+      url:`${process.env.API_URL}/books/${item.id}`,
       method: "put",
       data: item
     });

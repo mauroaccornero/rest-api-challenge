@@ -1,6 +1,6 @@
 import Button from "../Button/Button";
 import { IBook } from "../../../interfaces/IBook";
-import { IAuthor } from "../../../interfaces/Author";
+import { IAuthor } from "../../../interfaces/IAuthor";
 
 import "./form.css";
 import useInput from "./hooks/useInput";
@@ -12,7 +12,7 @@ import Message, {IMessageProps} from "../Message/Message";
 import PATHS from "../../../constants/paths";
 import {useNavigate} from "react-router-dom";
 
-declare interface IFormProps {
+interface IFormProps {
   book?: IBook | null;
   submitCallback: (item: IBookPayload) => Promise<AxiosResponse>;
   buttonLabel: string;
@@ -25,11 +25,11 @@ const Form = ({
   submitCallback,
   buttonLabel = "Save",
 }: IFormProps) => {
-  const { value: title, setValue: setTitle } = useInput<string>(
+  const { value: title, setValue: setTitle } = useInput<IBookPayload["title"]>(
     book?.title || ""
   );
-  const { value: year, setValue: setYear } = useInput<number>(book?.year || 0);
-  const { value: author, setValue: setAuthor } = useInput<IAuthor>(
+  const { value: year, setValue: setYear } = useInput<IBookPayload["year"]>(book?.year.toString() || "0");
+  const { value: author, setValue: setAuthor } = useInput<IBookPayload["author"]>(
     book?.author || {id:"", name: ""}
   );
   const [message, setMessage] = useState<{type: null | IMessageProps["type"], message: string}>({type: null, message: ""})
@@ -85,13 +85,13 @@ const Form = ({
           id={"year"}
           value={year}
           disabled={isProcessing}
-          onChange={(e) => setYear(parseInt(e.target.value))}
+          onChange={(e) => setYear(e.target.value)}
         >
           <option value="0" disabled>
             Please choose a year
           </option>
           {years.map((y) => (
-            <option key={y} value={y}>
+            <option key={y} value={y.toString()}>
               {y}
             </option>
           ))}

@@ -1,9 +1,12 @@
 import { defineConfig } from "cypress";
 
-export default defineConfig({
+const cypressConfig = {
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-  },
-});
+    baseUrl: 'http://localhost:3000',
+    env: {
+      api_url: 'http://localhost:4000'
+    }
+  }
+}
+
+export default defineConfig(cypressConfig);

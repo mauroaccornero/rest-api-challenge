@@ -7,10 +7,9 @@ const useAxios = <T>(path: string, method: Method = "get") => {
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<null | T>(null);
   const [error, setError] = useState<null | Error>(null);
-
   useEffect(() => {
     const axiosConfig = {
-      url: `${process.env.REACT_APP_API_URL}${path}`,
+      url: `${process.env.API_URL}${path}`,
       method,
       timeout: 5000,
     };

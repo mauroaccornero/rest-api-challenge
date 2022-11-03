@@ -1,7 +1,7 @@
 import Layout from "../../layout/Layout/Layout";
 import Form from "../../layout/Form/Form";
 import useAxios from "../../../hooks/useAxios";
-import { IAuthor } from "../../../interfaces/Author";
+import { IAuthor } from "../../../interfaces/IAuthor";
 import Loading from "../../layout/Loading/Loading";
 import Message from "../../layout/Message/Message";
 import {IBookPayload} from "../../../interfaces/IBookPayload";
@@ -15,7 +15,7 @@ const Create = () => {
   } = useAxios<IAuthor[]>(`/authors`);
 
   const submitCallback = (item: IBookPayload) => axios({
-      url: process.env.REACT_APP_API_URL + "/books/",
+      url: process.env.API_URL + "/books/",
       method: "post",
       data: item
     });

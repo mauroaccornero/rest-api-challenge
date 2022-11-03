@@ -14,9 +14,6 @@ Run the project with
 
 ### `npm run dev`
 
-or check the e2e tests with
-
-### `npm run e2e:dev`
 
 or unit test coverage
 
@@ -26,7 +23,7 @@ or unit test coverage
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.
 
 ### `npm test`
 
@@ -34,7 +31,7 @@ Use jest for coverage of unit tests
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
+Builds the app for production to the `build` folder.
 
 ### `npm run audit:prod`
 
@@ -64,9 +61,7 @@ Fix file linting
 
 Run tests, linting audit and types check for precommit git hook 
 
-### `npm run eject`
+### `build:dev`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-
+Build a local version of prod  with a custom parameter for API_URL
 

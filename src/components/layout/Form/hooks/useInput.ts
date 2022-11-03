@@ -1,6 +1,6 @@
 import { Dispatch, useState } from "react";
 
-declare interface ReturnedData<T> {
+interface ReturnedData<T> {
   value: T;
   setValue: Dispatch<T>;
 }

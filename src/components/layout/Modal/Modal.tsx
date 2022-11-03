@@ -2,7 +2,7 @@ import React from "react";
 
 import "./modal.css"
 
-declare interface IModalProps {
+interface IModalProps {
     children: React.ReactNode
 }
 

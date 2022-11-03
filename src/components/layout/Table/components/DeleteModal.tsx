@@ -3,7 +3,7 @@ import Message from "../../Message/Message";
 import Modal from "../../Modal/Modal";
 import {memo} from "react";
 
-export declare interface IDeleteModalProps {
+export interface IDeleteModalProps {
     processStatus: null | "error" | "success" | "confirm" | "processing"
     deleteItem: () => void
     abortDelete: () => void

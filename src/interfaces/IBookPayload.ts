@@ -1,8 +1,9 @@
-import { IAuthor } from "./Author";
+import { IBook } from "./IBook";
+import {IAuthor} from "./IAuthor";
 
-export declare interface IBookPayload {
-  id?: string;
-  title: string;
+export interface IBookPayload {
+  id?: IBook['id'];
+  title: IBook['title'];
   author: IAuthor;
-  year: number;
+  year: string;
 }

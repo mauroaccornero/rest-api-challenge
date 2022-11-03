@@ -5,18 +5,19 @@ context('CRUD e2e test', function () {
             books: [],
             authors:[]
         }
-        cy.request('GET', 'http://localhost:4000/books').then(
+        cy.request('GET', `${Cypress.env('api_url')}/books`).then(
             function(response) {
+                console.log(response.body)
                 this.data.books = response.body
             }
         )
 
-        cy.request('GET', 'http://localhost:4000/authors').then(
+        cy.request('GET', `${Cypress.env('api_url')}/authors`).then(
             function(response) {
                 this.data.authors = response.body
             }
         )
-        cy.visit('http://localhost:3000')
+        cy.visit("/")
     })
 
     // list
@@ -52,7 +53,7 @@ context('CRUD e2e test', function () {
     it("Should show a book detail",function () {
         // arrange
         const singleBook = this.data.books[9]
-        const detailUrl = "http://localhost:3000/detail/" + singleBook.id
+        const detailUrl = "/detail/" + singleBook.id
 
         // act
         cy.visit(detailUrl);
@@ -73,9 +74,9 @@ context('CRUD e2e test', function () {
             year: 2005,
             author: this.data.authors[3]
         }
-        cy.visit("http://localhost:3000/create");
+        cy.visit("/create");
 
-        cy.intercept("POST","/books").as('create')
+        cy.intercept("POST",`${Cypress.env('api_url')}/books`).as('create')
 
         cy.get("#title").type(newBook.title)
         cy.get("#author").select(newBook.author.name)
@@ -94,7 +95,7 @@ context('CRUD e2e test', function () {
 
     // update
     it("Should update a book",function () {
-        cy.intercept("PUT","/books/*").as('update')
+        cy.intercept("PUT",`${Cypress.env('api_url')}/books/*`).as('update')
         const bookIndex = 21
         const book = this.data.books[bookIndex]
         const updatedBook = {
@@ -103,7 +104,7 @@ context('CRUD e2e test', function () {
             author: this.data.authors[20]
         }
 
-        cy.visit("http://localhost:3000/update/" + book.id);
+        cy.visit("/update/" + book.id);
 
         cy.get("#title").clear().type(updatedBook.title)
         cy.get("#author").select(updatedBook.author.name)
@@ -115,7 +116,7 @@ context('CRUD e2e test', function () {
             expect(result.response.statusCode).to.eq(200);
         })
 
-        cy.visit("http://localhost:3000/detail/" + book.id);
+        cy.visit("/detail/" + book.id);
 
         cy.get("#detail-page ul li:eq(0)").should("have.text","Id: " +  book.id)
         cy.get("#detail-page ul li:eq(1)").should("have.text","Title: " +  updatedBook.title)
@@ -127,7 +128,7 @@ context('CRUD e2e test', function () {
     // delete
 
     it("Should delete a book",function () {
-        cy.intercept("DELETE","/books/*").as('delete')
+        cy.intercept("DELETE",`${Cypress.env('api_url')}/books/*`).as('delete')
         // click list menu link
         cy.get('#menu a').contains("List").click()
         // click delete button

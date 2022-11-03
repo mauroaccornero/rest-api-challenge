@@ -1,6 +1,6 @@
 import "./message.css"
 
-export declare interface IMessageProps {
+export interface IMessageProps {
   message: string;
   type: "info" | "error" | "warning" | "success";
 }

@@ -1,36 +1,24 @@
-const { v4: uuidv4 } = require("uuid");
+'use strict';
 
-// random numbers range
-const randomRange = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1)) + min;
+const { faker } = require('@faker-js/faker/locale/en');
+const createMockAuthor = require('./createMockAuthor')
+const createMockBook = require('./createMockBook')
+const { getRandomAuthor } = require('./utils')
 
-// create random year
-const randYear = (year) => randomRange(1900, year);
+faker.seed(9165);
 
-// get random author
-const randAuthor = (authors) => authors[randomRange(authors.length - 1, 0)];
+// mocks length
+const MOCKS_LENGTH = 50
 
 module.exports = () => {
   const data = { books: [], authors: [] };
-  const today = new Date();
-  const year = today.getFullYear();
 
-  // add authors
-  for (let i = 0; i < 100; i++) {
-    data.authors.push({
-      id: uuidv4(),
-      name: `author ${i}`,
-    });
-  }
-
-  // add books
-  for (let i = 0; i < 100; i++) {
-    data.books.push({
-      id: uuidv4(),
-      title: `book title ${i}`,
-      year: randYear(year),
-      author: randAuthor(data.authors),
-    });
+  for (let i = 0; i < MOCKS_LENGTH; i++) {
+    const randomAuthor = createMockAuthor()
+    data.authors = [...data.authors, randomAuthor];
+    const relatedAuthor = getRandomAuthor(data.authors)
+    const randomBook = createMockBook(relatedAuthor)
+    data.books = [...data.books, randomBook];
   }
 
   return data;

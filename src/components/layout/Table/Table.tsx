@@ -8,7 +8,7 @@ import {memo, useState} from "react";
 import axios from "axios";
 import DeleteModal, {IDeleteModalProps} from "./components/DeleteModal";
 
-declare interface ITableProps {
+interface ITableProps {
   books: IBook[];
 }
 
@@ -26,11 +26,11 @@ const Table = memo(({ books }: ITableProps) => {
 
     const deleteItem = () => {
         axios({
-            url:`${process.env.REACT_APP_API_URL}/books/${itemToDelete}`,
+            url:`${process.env.API_URL}/books/${itemToDelete}`,
             method: "delete"
-        }).then(response => {
+        }).then(() => {
             setProcessStatus("success")
-        }).catch(err => {
+        }).catch(() => {
             setProcessStatus("error")
         }).finally(() => {
             // end processing

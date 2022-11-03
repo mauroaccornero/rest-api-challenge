@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 describe('App e2e test', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.visit("/")
   })
 
   it('should show homepage with the correct content', () => {

@@ -1,7 +1,7 @@
 import "./button.css";
 import React from "react";
 
-declare interface IButtonProps {
+interface IButtonProps {
   handleClick: (event: React.MouseEvent<HTMLElement>) => void;
   label: string;
   disabled?: boolean;

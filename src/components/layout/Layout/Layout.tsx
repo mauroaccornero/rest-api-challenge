@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 import "./layout.css";
 import Nav from "../Nav/Nav";
 
-declare interface ILayoutProps {
+interface ILayoutProps {
   children: React.ReactNode;
 }
 

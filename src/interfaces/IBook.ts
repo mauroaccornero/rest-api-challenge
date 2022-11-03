@@ -1,6 +1,6 @@
-import { IAuthor } from "./Author";
+import { IAuthor } from "./IAuthor";
 
-export declare interface IBook {
+export interface IBook {
   id: string;
   title: string;
   author: IAuthor;
